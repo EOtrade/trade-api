@@ -1,13 +1,14 @@
-- [General API information](#org8951cc4)
-- [Public API endpoints](#org4f3dbbd)
-  - [Symbols](#org2d8db21)
-  - [Recent trade list](#orge3dadd6)
-  - [Fetch single deal](#org909219c)
-  - [Order book](#orgd530e56)
+- [General API information](#org310f231)
+- [Public API endpoints](#org415af95)
+  - [Currencies](#org4e2600b)
+  - [Symbols](#org2c486a3)
+  - [Recent trade list](#orgab2805d)
+  - [Fetch single deal](#org4e4cdca)
+  - [Order book](#org4353dba)
 
 
 
-<a id="org8951cc4"></a>
+<a id="org310f231"></a>
 
 # General API information
 
@@ -17,12 +18,51 @@
 -   For `GET` endpoints parameters must be sent as `query string`.
 
 
-<a id="org4f3dbbd"></a>
+<a id="org415af95"></a>
 
 # Public API endpoints
 
 
-<a id="org2d8db21"></a>
+<a id="org4e2600b"></a>
+
+## Currencies
+
+Get all available currencies information.
+
+```restclient
+GET https://b.eo.trade/api/trading/currencies/
+```
+
+Response:
+
+```js
+[
+  {
+    "currency": "BTC",
+    "name": "Bitcoin",
+    "canDeposit": true,
+    "canWithdraw": true,
+    "minWithdrawal": "0.000056160909653938"
+  },
+  {
+    "currency": "EO",
+    "name": "EO Coin",
+    "canDeposit": true,
+    "canWithdraw": true,
+    "minWithdrawal": "2"
+  },
+  {
+    "currency": "ETH",
+    "name": "Ethereum",
+    "canDeposit": true,
+    "canWithdraw": true,
+    "minWithdrawal": "0.005"
+  }
+]
+```
+
+
+<a id="org2c486a3"></a>
 
 ## Symbols
 
@@ -62,7 +102,7 @@ Response:
 ```
 
 
-<a id="orge3dadd6"></a>
+<a id="orgab2805d"></a>
 
 ## Recent trade list
 
@@ -105,7 +145,7 @@ Response:
 ```
 
 
-<a id="org909219c"></a>
+<a id="org4e4cdca"></a>
 
 ## Fetch single deal
 
@@ -133,7 +173,7 @@ Response:
 ```
 
 
-<a id="orgd530e56"></a>
+<a id="org4353dba"></a>
 
 ## Order book
 
@@ -145,10 +185,10 @@ GET /api/trading/depth/
 
 Query parameters:
 
-| Parameter         | Type    | Description                                                       |
-|----------------- |------- |----------------------------------------------------------------- |
-| symbol `required` | string  | Pair symbol                                                       |
-| limit             | integer | Valid limits: [5, 10, 20, 50, 100, 500, 1000]. Default value: 100 |
+| Parameter         | Type    | Description                                                          |
+|----------------- |------- |-------------------------------------------------------------------- |
+| symbol `required` | string  | Pair symbol                                                          |
+| limit             | integer | Valid limits: [1, 5, 10, 20, 50, 100, 500, 1000]. Default value: 100 |
 
 Response:
 
