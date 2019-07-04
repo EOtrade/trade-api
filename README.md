@@ -30,7 +30,7 @@
 Get all available currencies information.
 
 ```restclient
-GET https://b.eo.trade/api/trading/currencies/
+GET /api/trading/currencies/
 ```
 
 Response:
